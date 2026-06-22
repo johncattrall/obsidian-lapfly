@@ -186,3 +186,65 @@
 .theme-dark .workspace-ribbon {
   background-color: var(--color-base-00);
 }
+
+/* ============================================================================
+   Ambient background  —  lapfly.com dot grid + corner orbs (dark only)
+   Values lifted verbatim from lapfly.com: a 40px dot grid at 6% white, a red
+   orb (rgba(196,38,31,.11)) top-right and a navy orb (rgba(22,35,66,.7))
+   bottom-left, both 700px and blurred 60px. The editor surface is made
+   transparent so the layer shows behind notes; cards keep their own bg.
+   ============================================================================ */
+.theme-dark .app-container {
+  position: relative;
+  background-color: var(--color-base-00);
+}
+
+/* Corner orbs: fixed, blurred, behind the UI */
+.theme-dark .app-container::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle 350px at calc(100% - 150px) 150px,
+      rgba(196, 38, 31, 0.11) 0%, transparent 70%),
+    radial-gradient(circle 350px at 150px calc(100% - 150px),
+      rgba(22, 35, 66, 0.70) 0%, transparent 70%);
+  filter: blur(60px);
+}
+
+/* Dot grid overlay: fixed, behind the UI */
+.theme-dark .app-container::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.06;
+}
+
+/* Reveal the ambient layer through the editor; keep UI chrome above it */
+.theme-dark {
+  --background-primary: transparent;
+  --background-primary-alt: transparent;
+}
+.theme-dark .workspace,
+.theme-dark .workspace-split,
+.theme-dark .workspace-tabs,
+.theme-dark .workspace-leaf,
+.theme-dark .workspace-leaf-content,
+.theme-dark .view-content,
+.theme-dark .markdown-source-view,
+.theme-dark .markdown-reading-view,
+.theme-dark .cm-editor,
+.theme-dark .cm-scroller {
+  background-color: transparent;
+}
+.theme-dark .workspace {
+  position: relative;
+  z-index: 1;
+}
