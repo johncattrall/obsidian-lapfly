@@ -105,8 +105,8 @@
 }
 .markdown-rendered a:hover,
 .internal-link:hover {
-  text-decoration-color: var(--lapfly-lime);
-  text-underline-offset: 3px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--lapfly-lime);
 }
 
 /* Headings: main headers carry the brand lime; H1 brightest, H2 a step down */
