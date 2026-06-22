@@ -2,6 +2,8 @@
 
 An [Obsidian](https://obsidian.md) theme based on the [lapfly.com](https://lapfly.com) colour scheme: a GitHub-dark foundation with a signature electric-blue accent and a racing-lime pop. Ships **dark** and **light** modes.
 
+![Lapfly theme screenshot](screenshot/lapfly-screenshot-dark.png)
+
 ## Palette
 
 | Role            | Dark        | Light       |
