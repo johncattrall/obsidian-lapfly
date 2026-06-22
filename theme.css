@@ -13,6 +13,7 @@
   --lapfly-lime-dim: #d2e026;
   --lapfly-blue: #58a6ff;
   --lapfly-blue-bright: #79c0ff;
+  --lapfly-lime-deep: #5e6e00; /* readable lime for light backgrounds */
 
   --font-monospace-theme:
     "JetBrains Mono", "SFMono-Regular", "Cascadia Code", "Fira Code",
@@ -108,15 +109,21 @@
   text-underline-offset: 3px;
 }
 
-/* Headings: subtle weight ramp, H1 picks up the blue accent */
+/* Headings: main headers carry the brand lime; H1 brightest, H2 a step down */
 .markdown-rendered h1,
 .HyperMD-header-1 {
-  color: var(--lapfly-blue);
+  color: var(--lapfly-lime);
   letter-spacing: -0.01em;
 }
+.markdown-rendered h2,
+.HyperMD-header-2 {
+  color: var(--lapfly-lime-dim);
+}
 .theme-light .markdown-rendered h1,
-.theme-light .HyperMD-header-1 {
-  color: var(--color-blue);
+.theme-light .HyperMD-header-1,
+.theme-light .markdown-rendered h2,
+.theme-light .HyperMD-header-2 {
+  color: var(--lapfly-lime-deep);
 }
 
 /* Active tab gets a lime top indicator — the "speed line" */
