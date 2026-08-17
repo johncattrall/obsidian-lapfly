@@ -52,6 +52,13 @@
   --accent-h: 212;
   --accent-s: 100%;
   --accent-l: 67%;
+
+  /* Top bar. Obsidian paints the tab container from
+     --tab-container-background, which resolves through
+     --titlebar-background[-focused] to base-20/base-30 by default. Both
+     read grey against the canvas, so pin them to the canvas colour. */
+  --titlebar-background: var(--color-base-00);
+  --titlebar-background-focused: var(--color-base-00);
 }
 
 /* ============================================================================
@@ -84,6 +91,10 @@
   --accent-h: 216;
   --accent-s: 84%;
   --accent-l: 45%;
+
+  /* Top bar: same fix as dark. Default resolves to base-30 (#afb8c1). */
+  --titlebar-background: var(--color-base-00);
+  --titlebar-background-focused: var(--color-base-00);
 }
 
 /* ============================================================================
@@ -245,4 +256,45 @@
 .theme-dark .workspace {
   position: relative;
   z-index: 1;
+}
+
+/* Sidebars: Obsidian paints side-panel leaves with --background-secondary
+   (base-20, #1c2333), which reads grey next to the near-black editor now
+   that the main split is transparent. Re-point the variable inside the two
+   side splits only, so modals, menus and popovers keep their own surface.
+   Transparent lets the ambient orbs and dot grid glow through the panels;
+   depth comes entirely from the edge and shadow below, not from colour. */
+.theme-dark .workspace-split.mod-left-split,
+.theme-dark .workspace-split.mod-right-split {
+  --background-secondary: transparent;
+  /* The split paints its own surface from --tab-container-background
+     (app.css: .workspace-split), which resolves to base-20 at body level.
+     A transparent leaf uncovers it, so clear the container too. */
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+/* Depth order, left to right: the left panel sits above the editor, the
+   editor above the right panel. Explicit z-index because DOM order alone
+   would paint the right split last, i.e. on top. */
+.theme-dark .workspace-split.mod-left-split {
+  z-index: 2;
+  border-right: 1px solid var(--color-base-30);
+  box-shadow: 6px 0 18px rgba(0, 0, 0, 0.45);
+}
+.theme-dark .workspace-split.mod-root {
+  position: relative;
+  z-index: 1;
+  /* Cast onto the right panel, so the editor reads as the nearer surface. */
+  box-shadow: 6px 0 18px rgba(0, 0, 0, 0.45);
+}
+
+/* The right panel recedes: no shadow of its own, and an inset along its left
+   edge so the editor appears to overlap it. Inset paints regardless of the
+   transparent background, so the ambient layer darkens into the seam. */
+.theme-dark .workspace-split.mod-right-split {
+  z-index: 0;
+  border-left: 1px solid var(--color-base-30);
+  box-shadow: inset 10px 0 20px -6px rgba(0, 0, 0, 0.7);
 }
