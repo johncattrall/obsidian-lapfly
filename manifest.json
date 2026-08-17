@@ -1,7 +1,8 @@
 {
   "name": "Lapfly",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.0.0",
   "author": "johncattrall",
-  "authorUrl": "https://lapfly.com"
+  "authorUrl": "https://lapfly.com",
+  "fundingUrl": "https://buymeacoffee.com/johncattrall"
 }

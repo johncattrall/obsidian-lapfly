@@ -105,7 +105,7 @@
 }
 .markdown-rendered a:hover,
 .internal-link:hover {
-  text-decoration: none;
+  text-decoration-line: none;
   border-bottom: 1px solid var(--lapfly-lime);
 }
 
