@@ -1,5 +1,7 @@
 # Lapfly
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-b8ff00?style=flat&logo=buymeacoffee&logoColor=black&labelColor=0d1117)](https://buymeacoffee.com/johncattrall)
+
 An [Obsidian](https://obsidian.md) theme based on the [lapfly.com](https://lapfly.com) colour scheme: a GitHub-dark foundation with a signature electric-blue accent and a racing-lime pop. Ships **dark** and **light** modes.
 
 ![Lapfly theme screenshot](screenshot/lapfly-screenshot-dark.png)
@@ -30,6 +32,11 @@ The lime appears as small "speed line" touches: the active-tab indicator, checke
 ## Develop
 
 `theme.css` overrides Obsidian's base colour scale (`--color-base-00` … `--color-base-100`), the brand colour hues (`--color-red`, `--color-blue`, …), and the HSL accent (`--accent-h/s/l`) per `.theme-dark` / `.theme-light`, then adds a handful of component refinements at the bottom.
+
+## Support
+
+If Lapfly makes your vault nicer, you can
+[buy me a coffee](https://buymeacoffee.com/johncattrall).
 
 ## License
 
